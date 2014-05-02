@@ -1,0 +1,30 @@
+<Widget>
+    <Kind>4</Kind>
+    <Name>SLICE TEXTURE SCALE</Name>
+    <Value>0.198630139</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>BLUR AMOUNT</Name>
+    <Value>0.947602749</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>BLUR ITERATIONS</Name>
+    <Value>1.739726067</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>CONTOUR MIN RADIUS</Name>
+    <Value>3.712328672</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>CONTOUR MAX RADIUS</Name>
+    <Value>148.113021851</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>CONTOUR THRESHOLD</Name>
+    <Value>47.102737427</Value>
+</Widget>

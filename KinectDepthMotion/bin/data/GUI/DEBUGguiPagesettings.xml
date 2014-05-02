@@ -1,0 +1,20 @@
+<Widget>
+    <Kind>2</Kind>
+    <Name>DRAW SLICES</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>DRAW DEPTH</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>SLICE AMOUNT</Name>
+    <Value>20.123287201</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>SLICE DRAW SIZE W</Name>
+    <Value>365.205474854</Value>
+</Widget>
