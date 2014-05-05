@@ -25,8 +25,11 @@ void testApp::setup()
 
 void testApp::update()
 {
-    kinectManager.update(isPaused);
-    motionTracker.update(kinectManager.getDepth());
+    if (!isPaused)
+    {
+        kinectManager.update();
+        motionTracker.update(kinectManager.getDepth());
+    }
 }
 
 

@@ -29,9 +29,27 @@ public:
     ofShader depthThresholdShader;
     ofShader depthSmoothHShader;
     ofShader depthSmoothVShader;
+    ofShader blobDifferncingShader;
+    ofFbo blobDifferncingFbo;
     ofFbo depthSmallFbo;
     float sliceAmount;
     
+    
+    float sliceMinThreshold;
+    float sliceMaxThreshold;
+    
     bool isDrawSlices;
-
+    bool isDrawSliceImages;
+    bool isDrawSliceContours;
+    bool isDrawResampledPolylines;
+    bool isDrawResampledPolylinePoints;
+    bool isDrawResamplesPolylineInfo;
+    bool isDrawMotionSmoothedPolylines;
+    bool isDrawMotionSmoothedPolylinePoints;
+    bool isDrawSmoothedPolylineBoundingBox;
+    bool isDrawVelocities;
+    
+    bool isDrawCombinedVelocities;
+    
+    float combinedMotionScale;
 };

@@ -24,10 +24,8 @@ void KinectManager::setup()
 
 
 
-void KinectManager::update(bool isPaused)
+void KinectManager::update()
 {
-    if (isPaused) return;
-    
 	kinect.update();
 	// there is a new frame and we are connected
 	if(kinect.isFrameNew())

@@ -1,20 +1,70 @@
 <Widget>
+    <Kind>4</Kind>
+    <Name>SLICE DRAW SIZE W</Name>
+    <Value>375.308197021</Value>
+</Widget>
+<Widget>
     <Kind>2</Kind>
     <Name>DRAW SLICES</Name>
     <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
-    <Name>DRAW DEPTH</Name>
+    <Name>DRAW SLICE IMAGES</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>DRAW SLICE CONTOURS</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>DRAW RESAMPLED POLYLINES</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>DRAW RESAMPLED POLYLINE PNTS</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>DRAW RESAMPLED POLYLINE INFO</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>DRAW MOTION SMOOTH POLYLINES</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>DRAW MOTION SMOOTH POLYLINE PNTS</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>DRAW MOTION SMOOTH BOUNDING BOX</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>DRAW VELOCITIES</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>DRAW COMBINED VELOCITIES</Name>
     <Value>0</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
-    <Name>SLICE AMOUNT</Name>
-    <Value>20.123287201</Value>
+    <Name>COMBINED VELOCITIES SCALE</Name>
+    <Value>11.996575356</Value>
 </Widget>
 <Widget>
-    <Kind>4</Kind>
-    <Name>SLICE DRAW SIZE W</Name>
-    <Value>365.205474854</Value>
+    <Kind>2</Kind>
+    <Name>DRAW DEPTH</Name>
+    <Value>1</Value>
 </Widget>

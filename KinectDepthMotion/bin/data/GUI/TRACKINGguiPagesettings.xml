@@ -1,30 +1,112 @@
 <Widget>
     <Kind>4</Kind>
+    <Name>SLICE AMOUNT</Name>
+    <Value>20.123287201</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
     <Name>SLICE TEXTURE SCALE</Name>
-    <Value>0.198630139</Value>
+    <Value>0.201712325</Value>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>SLICE MIN/MAX THRESHOLD</Name>
+    <HighValue>255.000000000</HighValue>
+    <LowValue>0.000000000</LowValue>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>BLUR AMOUNT</Name>
-    <Value>0.947602749</Value>
+    <Value>0.913698614</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>BLUR ITERATIONS</Name>
-    <Value>1.739726067</Value>
+    <Value>1.000000000</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
-    <Name>CONTOUR MIN RADIUS</Name>
+    <Name>MIN RADIUS</Name>
     <Value>3.712328672</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
-    <Name>CONTOUR MAX RADIUS</Name>
-    <Value>148.113021851</Value>
+    <Name>MAX RADIUS</Name>
+    <Value>243.907531738</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
-    <Name>CONTOUR THRESHOLD</Name>
+    <Name>THRESHOLD</Name>
     <Value>47.102737427</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>SMOOTHING</Name>
+    <Value>4.852739811</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>IS RESAMPLE COUNT FIXED</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>FIXED RESAMPLE COUNT</Name>
+    <Value>23.869861603</Value>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>ARC-RESAMPLE INPUT RANGE</Name>
+    <HighValue>302.068511963</HighValue>
+    <LowValue>1.000000000</LowValue>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>ARC-RESAMPLE OUTPUT RANGE</Name>
+    <HighValue>31.541095734</HighValue>
+    <LowValue>7.544520378</LowValue>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>ARC-RESAMPLE OUTPUT STEP</Name>
+    <Value>8.982876778</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>TRACKED BLOB HISTORY SIZE</Name>
+    <Value>5.150684834</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>TRACKED BLOB POINT SMOOTHING</Name>
+    <Value>0.192589045</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>AVERAGE B BOX HISTORY SIZE</Name>
+    <Value>2.493150711</Value>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>BBOX POS DIFF INPUT RANGE</Name>
+    <HighValue>3.150684834</HighValue>
+    <LowValue>0.000000000</LowValue>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>BBOX POS DIFF OUTPUT RANGE</Name>
+    <HighValue>1.000000000</HighValue>
+    <LowValue>0.608561635</LowValue>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>BBOX SIZE DIFF INPUT RANGE</Name>
+    <HighValue>3.527397156</HighValue>
+    <LowValue>0.000000000</LowValue>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>BBOX SIZE DIFF OUTPUT RANGE</Name>
+    <HighValue>1.000000000</HighValue>
+    <LowValue>0.602397263</LowValue>
 </Widget>

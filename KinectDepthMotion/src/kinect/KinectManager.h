@@ -22,7 +22,7 @@ public:
     KinectManager();
 	
 	void setup();
-	void update(bool isPaused);
+	void update();
 	void draw();
     void debugDraw();
     ofTexture getDepth();

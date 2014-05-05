@@ -20,6 +20,8 @@
 //
 
 // THOUGHTS:
+// Apply blur once to the depthmap instead of every slice. In blurring necessary when I can smooth polylines?
+// Do I need to perform threshold slicing to create slice images? Maybe just adjust contour thresholds in each DepthSlice
 // Look into blob tracking
 // Blobs only become active after a lifespan of n
 // What happens when a blob starts to shrink (body part moving out of threshold) - most velocities point inward
@@ -28,7 +30,17 @@
 // - Scale down velocity for blobs rapidly changing size.
 // - particles are more likely to appear when the blob maintain a consistant size.
 // Possible issue with Convex Hulls - https://github.com/kylemcdonald/ofxCv/issues/83
+// Only apply motion if is coniuous over n frames, i.e. motion vector needs to move in the same direction for several frames
+// before it is recognised as real motion - cuts out false motion from flickering
+// Really need to keep motion data in constant flow. Cancelling out motion when polyline counts change is not good. As counts increase/decrease
+//   the app should be able to handle it.
 
+
+// Changes made whilst in car
+// --------------------------
+// draw resampled info added
+// threshold added for slice min/max distance - check MotionTracker::update()
+// apply blurring to depthmap instead of all slices
 
 
 #include "MotionTracker.h"
@@ -53,6 +65,9 @@ void MotionTracker::setup(float depthW, float depthH)
     depthThresholdShader.load("shaders/DepthThresholdShader");
     depthSmoothHShader.load("shaders/DepthSmoothShaderH");
     depthSmoothVShader.load("shaders/DepthSmoothShaderV");
+    blobDifferncingShader.load("shaders/BlobDifferncing");
+    
+    blobDifferncingFbo.allocate(settings);
     
     depthSlices.clear();
     for (int i = 0; i < (int)sliceAmount; i++)
@@ -62,6 +77,8 @@ void MotionTracker::setup(float depthW, float depthH)
         depthSlice.depthThresholdShader = &depthThresholdShader;
         depthSlice.depthSmoothHShader = &depthSmoothHShader;
         depthSlice.depthSmoothVShader = &depthSmoothVShader;
+        depthSlice.blobDifferncingShader = &blobDifferncingShader;
+        depthSlice.blobDifferncingFbo = &blobDifferncingFbo;
         depthSlices.push_back(depthSlice);
     }
 }
@@ -80,10 +97,16 @@ void MotionTracker::update(ofTexture depthTex)
     {
         float thresholdSection = 255 / depthSlices.size();
         
-        int minThreshold = 255 - (i * thresholdSection + thresholdSection);
-        int maxThreshold = 255 - (i * thresholdSection);
+        int minThreshold = ofMap(255 - (i * thresholdSection + thresholdSection), 0, 255, sliceMinThreshold, sliceMaxThreshold);
+        int maxThreshold = ofMap(255 - (i * thresholdSection), 0, 255, sliceMinThreshold, sliceMaxThreshold);
         
         depthSlices[i].update(&depthSmallFbo.getTextureReference(), minThreshold, maxThreshold);
+        //depthSlices[i].update(&depthSmallFbo.getTextureReference(), 200, 255);
+    }
+    
+    for (int i = 0; i < depthSlices.size(); i++)
+    {
+        
     }
 }
 
@@ -93,22 +116,94 @@ void MotionTracker::draw()
     if (depthSlices.size() == 0 || !isDrawSlices) return;
     
     ofSetColor(255);
-    int slicesPerRow = ofGetWidth() / drawSizeW; /// (sliceW * drawScale);
+    int slicesPerRow = ofGetWidth() / drawSizeW;
     float drawScale = drawSizeW / sliceW;
+    
+    // set drawing x/y for each slice
+    for (int i = 0; i < depthSlices.size(); i++)
+        depthSlices[i].setDrawPnt((i % slicesPerRow * sliceW * drawScale), (int)(i / slicesPerRow) * (sliceH * drawScale));
+    
+    
+    if (isDrawSliceImages)
+    {
+        for (int i = 0; i < depthSlices.size(); i++)
+        {
+            DepthSlice *depthSlice = &depthSlices[i];
+            ofPushMatrix();
+            ofTranslate(depthSlice->drawPnt.x, depthSlice->drawPnt.y);
+            ofScale(drawScale, drawScale);
+            depthSlice->drawImage();
+            ofPopMatrix();
+            
+            ofPushStyle();
+            ofNoFill();
+            ofSetColor(0, 255, 0, 255);
+            ofRect(depthSlice->drawPnt.x, depthSlice->drawPnt.y, sliceW * drawScale, sliceH * drawScale);
+            ofPopStyle();
+        }
+    }
+    
+    if (isDrawSliceContours)
+    {
+        for (int i = 0; i < depthSlices.size(); i++)
+        {
+            DepthSlice *depthSlice = &depthSlices[i];
+            ofPushMatrix();
+            ofTranslate(depthSlice->drawPnt.x, depthSlice->drawPnt.y);
+            ofScale(drawScale, drawScale);
+            depthSlice->drawContour();
+            ofPopMatrix();
+            ofPushStyle();
+        }
+    }
+    
+    ofSetCircleResolution(6);
+    for (int i = 0; i < depthSlices.size(); i++)
+    {
+        DepthSlice *depthSlice = &depthSlices[i];
+        ofPushMatrix();
+        ofTranslate(depthSlice->drawPnt.x, depthSlice->drawPnt.y);
+        ofScale(drawScale, drawScale);
+        
+        if (isDrawResampledPolylines)
+            depthSlice->drawResampledPolylines();
+        if (isDrawResampledPolylinePoints)
+            depthSlice->drawResampledPolylinePoints();
+        if (isDrawResamplesPolylineInfo)
+            depthSlice->drawResampledPolylineInfo();
+        if (isDrawMotionSmoothedPolylines)
+            depthSlice->drawMotionSmoothedBlobs();
+        if (isDrawMotionSmoothedPolylinePoints)
+            depthSlice->drawMotionSmoothedBlobsPoints();
+        if (isDrawSmoothedPolylineBoundingBox)
+            depthSlice->drawSmoothedPolylineBoundingBox();
+        if (isDrawVelocities)
+            depthSlice->drawMotionDirection();
+        
+        ofPopMatrix();
+        ofPushStyle();
+    }
     
     for (int i = 0; i < depthSlices.size(); i++)
     {
-        int x = (i % slicesPerRow * sliceW * drawScale);
-        int y = (int)(i / slicesPerRow) * (sliceH * drawScale);
         ofPushMatrix();
-        ofTranslate(x, y);
-        ofScale(drawScale, drawScale);
-        depthSlices[i].draw();
+        ofTranslate(100, ofGetHeight() - 640);
+        //depthSlices[i].drawContour();
+        //depthSlices[i].drawPolylinePoints();
         ofPopMatrix();
-        ofPushStyle();
-        ofNoFill();
-        ofSetColor(0, 255, 0, 255);
-        ofRect(x, y, sliceW * drawScale, sliceH * drawScale);
-        ofPopStyle();
+    }
+    
+    if (isDrawCombinedVelocities)
+    {
+        
+        ofPushMatrix();
+        ofTranslate(300, 0);
+        ofScale(combinedMotionScale, combinedMotionScale);
+        for (int i = 0; i < depthSlices.size(); i++)
+        {
+            DepthSlice *depthSlice = &depthSlices[i];
+            depthSlice->drawMotionDirection();
+        }
+        ofPopMatrix();
     }
 }
