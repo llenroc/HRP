@@ -7,7 +7,7 @@
 //
 
 #include "KinectManager.h"
-#include "testApp.h"
+#include "ofApp.h"
 
 KinectManager::KinectManager()
 {

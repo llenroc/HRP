@@ -12,7 +12,7 @@
 #include "GUIManager.h"
 #include "DepthSlice.h"
 
-class testApp;
+class ofApp;
 
 class GUI : public GUIManager
 {
@@ -29,5 +29,5 @@ public:
     void debugGUIEvent(ofxUIEventArgs &e);
     void backgroundGUIEvent(ofxUIEventArgs &e);
     
-    testApp* app;
+    ofApp* app;
 };

@@ -7,12 +7,12 @@
 //
 
 #include "GUI.h"
-#include "testApp.h"
+#include "ofApp.h"
 
 
 void GUI::setup()
 {
-    app = (testApp*)ofGetAppPtr();
+    app = (ofApp*)ofGetAppPtr();
     GUIManager::setup();
     
     addVariousGUI();
