@@ -83,7 +83,7 @@ void GUI::addTrackingGUI()
     gui->addSlider("AVERAGE B BOX HISTORY SIZE", 2, 10, &TrackedBlob::averageBoundingBoxHistorySize, length, dim);
     gui->addRangeSlider("BBOX POS DIFF INPUT RANGE", 0, 10, &TrackedBlob::motionProbPosInputMin, &TrackedBlob::motionProbPosInputMax, length, dim);
     gui->addRangeSlider("BBOX POS DIFF OUTPUT RANGE", 0.1, 1, &TrackedBlob::motionProbPosOutputMin, &TrackedBlob::motionProbPosOutputMax, length, dim);
-    gui->addRangeSlider("BBOX SIZE DIFF INPUT RANGE", 0, 10, &TrackedBlob::motionProbSizeInputMin, &TrackedBlob::motionProbSizeInputMax, length, dim);
+    gui->addRangeSlider("BBOX SIZE DIFF INPUT RANGE", 0, 100, &TrackedBlob::motionProbSizeInputMin, &TrackedBlob::motionProbSizeInputMax, length, dim);
     gui->addRangeSlider("BBOX SIZE DIFF OUTPUT RANGE", 0.1, 1, &TrackedBlob::motionProbSizeOutputMin, &TrackedBlob::motionProbSizeOutputMax, length, dim);
 
 
