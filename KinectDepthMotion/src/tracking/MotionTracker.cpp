@@ -65,7 +65,7 @@ void MotionTracker::setup(float depthW, float depthH)
     depthThresholdShader.load("shaders/DepthThresholdShader");
     depthSmoothHShader.load("shaders/DepthSmoothShaderH");
     depthSmoothVShader.load("shaders/DepthSmoothShaderV");
-    blobDifferncingShader.load("shaders/BlobDifferncing");
+    //blobDifferncingShader.load("shaders/BlobDifferncing");
     
     blobDifferncingFbo.allocate(settings);
     
