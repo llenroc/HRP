@@ -1,0 +1,28 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   KinectDepthMotion/bin/kinectExample.exp
+#	modified:   KinectDepthMotion/kinectExample.sdf
+#	modified:   KinectDepthMotion/kinectExample.v11.suo
+#	modified:   KinectDepthMotion/src/tracking/MotionTracker.cpp
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   KinectDepthMotion/bin/data/GUI/DEBUGguiPagesettings.xml
+#	modified:   KinectDepthMotion/bin/data/GUI/GUI DESIGNguiPagesettings.xml
+#	modified:   KinectDepthMotion/kinectExample.vcxproj.filters
+#	modified:   KinectDepthMotion/src/kinect/KinectManager.cpp
+#	modified:   KinectDepthMotion/src/ofApp.cpp
+#	modified:   KinectDepthMotion/src/ofApp.h
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	KinectDepthMotion/kinectExample.opensdf
+

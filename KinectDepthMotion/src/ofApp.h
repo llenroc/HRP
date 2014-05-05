@@ -4,8 +4,9 @@
 #include "KinectManager.h"
 #include "MotionTracker.h"
 #include "GUI.h"
+#ifdef TARGET_OS_MAC_
 #include "ofxSyphon.h"
-
+#endif
 
 //"Igloo Warper" - all 5 screens - 6400x720
 // "Unitycam 3"
@@ -33,7 +34,8 @@ public:
     MotionTracker motionTracker;
     GUI myGui;
     
+#ifdef TARGET_OS_MAC_
     ofxSyphonServer mainOutputSyphonServer;
-    
+#endif
     bool isPaused;
 };

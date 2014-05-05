@@ -5,11 +5,11 @@ void ofApp::setup()
 {
     ofSetFullscreen(true);
 	ofSetFrameRate(60);
-	//ofSetLogLevel(OF_LOG_ERROR);
+	ofSetLogLevel(OF_LOG_ERROR);
 	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofSetVerticalSync(true);
 	ofDisableSmoothing();
-    ofSetMinMagFilters();
+	ofSetMinMagFilters();
 	ofEnableAlphaBlending();
     
     kinectDepthW = 640;
@@ -18,8 +18,10 @@ void ofApp::setup()
     kinectManager.setup();
     motionTracker.setup(kinectDepthW, kinectDepthH);
     myGui.setup();
-    
-	mainOutputSyphonServer.setName("UnityCam 3");
+#ifdef TARGET_OS_MAC_
+    mainOutputSyphonServer.setName("UnityCam 3");
+#endif
+	
     
     isPaused = false;
 }
@@ -50,12 +52,14 @@ void ofApp::draw()
     ofPopMatrix();
     
     
+#ifdef TARGET_OS_MAC_
 	mainOutputSyphonServer.publishScreen();
+#endif
 }
 
 void ofApp::resetMotionTracker()
 {
-    motionTracker.setup(kinectDepthW, kinectDepthH);
+	motionTracker.setup(kinectDepthW, kinectDepthH);
 }
 
 

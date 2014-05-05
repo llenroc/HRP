@@ -73,23 +73,8 @@
     <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.cpp">
       <Filter>addons\ofxOpenCv\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\gui\GUIManager.cpp">
-      <Filter>src\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gui\GUI.cpp">
-      <Filter>src\gui</Filter>
-    </ClCompile>
     <ClCompile Include="src\kinect\KinectManager.cpp">
       <Filter>src\kinect</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tracking\TrackedBlob.cpp">
-      <Filter>src\tracking</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tracking\DepthSlice.cpp">
-      <Filter>src\tracking</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tracking\MotionTracker.cpp">
-      <Filter>src\tracking</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUICanvas.cpp">
       <Filter>addons\ofxUI\src</Filter>
@@ -270,6 +255,21 @@
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\ContourFinder.cpp">
       <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\GUIManager.cpp">
+      <Filter>src\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\GUI.cpp">
+      <Filter>src\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tracking\TrackedBlob.cpp">
+      <Filter>src\tracking</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tracking\DepthSlice.cpp">
+      <Filter>src\tracking</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tracking\MotionTracker.cpp">
+      <Filter>src\tracking</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -794,23 +794,8 @@
     <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect\objdetect.hpp">
       <Filter>addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect</Filter>
     </ClInclude>
-    <ClInclude Include="src\gui\GUIManager.h">
-      <Filter>src\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gui\GUI.h">
-      <Filter>src\gui</Filter>
-    </ClInclude>
     <ClInclude Include="src\kinect\KinectManager.h">
       <Filter>src\kinect</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tracking\TrackedBlob.h">
-      <Filter>src\tracking</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tracking\DepthSlice.h">
-      <Filter>src\tracking</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tracking\MotionTracker.h">
-      <Filter>src\tracking</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIButton.h">
       <Filter>addons\ofxUI\src</Filter>
@@ -1012,6 +997,21 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Distance.h">
       <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\GUIManager.h">
+      <Filter>src\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\GUI.h">
+      <Filter>src\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tracking\MotionTracker.h">
+      <Filter>src\tracking</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tracking\TrackedBlob.h">
+      <Filter>src\tracking</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tracking\DepthSlice.h">
+      <Filter>src\tracking</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
