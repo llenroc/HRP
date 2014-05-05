@@ -19,6 +19,8 @@ void ofApp::setup()
     motionTracker.setup(kinectDepthW, kinectDepthH);
     myGui.setup();
     
+	mainOutputSyphonServer.setName("UnityCam 3");
+    
     isPaused = false;
 }
 
@@ -46,6 +48,9 @@ void ofApp::draw()
     ofTranslate(0, ofGetHeight() - kinectDepthH);
     kinectManager.draw();
     ofPopMatrix();
+    
+    
+	mainOutputSyphonServer.publishScreen();
 }
 
 void ofApp::resetMotionTracker()

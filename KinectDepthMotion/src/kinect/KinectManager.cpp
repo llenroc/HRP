@@ -9,6 +9,7 @@
 #include "KinectManager.h"
 #include "ofApp.h"
 
+
 KinectManager::KinectManager()
 {
     

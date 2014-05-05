@@ -4,7 +4,11 @@
 #include "KinectManager.h"
 #include "MotionTracker.h"
 #include "GUI.h"
+#include "ofxSyphon.h"
 
+
+//"Igloo Warper" - all 5 screens - 6400x720
+// "Unitycam 3"
 
 class ofApp : public ofBaseApp{
 
@@ -28,6 +32,8 @@ public:
     KinectManager kinectManager;
     MotionTracker motionTracker;
     GUI myGui;
+    
+    ofxSyphonServer mainOutputSyphonServer;
     
     bool isPaused;
 };
